@@ -13,7 +13,11 @@ const Home: NextPage = ({ typedList }: any) => {
     const [blackHeader, setBlackHeader] = useState<boolean>(false);
 
     useEffect(() => {
-        setMovieList(typedList);
+        const loadAll = () => {
+            setMovieList(typedList);
+        };
+
+        loadAll();
     }, []);
 
     useEffect(() => {
