@@ -7,17 +7,17 @@ type Props = {
 
 export const FeaturedMovie = ({ featuredData }: Props) => {
     const data = new Date(featuredData.first_air_date);
-    let resume = "";
-    let genres: string[] = [];
-    for (let i in featuredData.genres) {
-        genres.push(featuredData.genres[i].name);
-        genres.join(", ");
-    }
 
+    let resume = "";
     if (featuredData.overview !== undefined) {
         resume = featuredData.overview.substring(0, 200) + "...";
     } else {
         resume = featuredData.overview;
+    }
+
+    let genres: string[] = [];
+    for (let i in featuredData.genres) {
+        genres.push(featuredData.genres[i].name);
     }
 
     return (
@@ -53,7 +53,7 @@ export const FeaturedMovie = ({ featuredData }: Props) => {
                         </C.Buttons>
                         <C.Genres>
                             <strong>Gêneros: </strong>
-                            {genres}
+                            {genres.join(", ")}
                         </C.Genres>
                     </C.MovieInfoArea>
                 </C.HorizontalFeatured>
