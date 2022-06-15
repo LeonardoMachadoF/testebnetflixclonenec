@@ -16,8 +16,17 @@ const Home: NextPage = ({ typedList, chosenInfo }: any) => {
 
     useEffect(() => {
         const loadAll = async () => {
-            setMovieList(typedList);
+            let originals = typedList.filter(
+                (i: Lista) => i.slug === "originals"
+            );
+            let randomChoose = Math.floor(
+                Math.random() * (originals[0].items.results.length - 1)
+            );
+            let choosen = originals[0].items.results[randomChoose];
+            let chosenInfo = await Tmdb.getMovieInfo(choosen.id, "tv");
+
             setFeaturedData(chosenInfo);
+            setMovieList(typedList);
         };
 
         loadAll();
@@ -58,17 +67,17 @@ export const getStaticProps = async () => {
     let list = await Tmdb.getHomeList();
     let typedList: Lista[] = list;
 
-    let originals = typedList.filter((i) => i.slug === "originals");
-    let randomChoose = Math.floor(
-        Math.random() * (originals[0].items.results.length - 1)
-    );
-    let choosen = originals[0].items.results[randomChoose];
-    let chosenInfo = await Tmdb.getMovieInfo(choosen.id, "tv");
+    // let originals = typedList.filter((i) => i.slug === "originals");
+    // let randomChoose = Math.floor(
+    //     Math.random() * (originals[0].items.results.length - 1)
+    // );
+    // let choosen = originals[0].items.results[randomChoose];
+    // let chosenInfo = await Tmdb.getMovieInfo(choosen.id, "tv");
 
     return {
         props: {
             typedList,
-            chosenInfo,
+            // chosenInfo,
         },
         revalidate: 600,
     };
