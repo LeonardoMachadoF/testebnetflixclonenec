@@ -7,6 +7,19 @@ type Props = {
 
 export const FeaturedMovie = ({ featuredData }: Props) => {
     const data = new Date(featuredData.first_air_date);
+    let resume = "";
+    let genres: string[] = [];
+    for (let i in featuredData.genres) {
+        genres.push(featuredData.genres[i].name);
+        genres.join(", ");
+    }
+
+    if (featuredData.overview !== undefined) {
+        resume = featuredData.overview.substring(0, 200) + "...";
+    } else {
+        resume = featuredData.overview;
+    }
+
     return (
         <C.Container
             backgroundImage={`url(https://image.tmdb.org/t/p/original${featuredData.backdrop_path})`}
@@ -27,7 +40,20 @@ export const FeaturedMovie = ({ featuredData }: Props) => {
                                     : "Temporadas"}
                             </C.DataRow>
                         </C.Data>
-                        <C.Overview>{featuredData.overview}</C.Overview>
+                        <C.Overview>{resume}</C.Overview>
+                        <C.Buttons>
+                            <a
+                                target="_blank"
+                                href={`https://www.themoviedb.org/tv/${featuredData.id}`}
+                            >
+                                <C.Button>► Assistir</C.Button>
+                            </a>
+                            <C.Button>+ Minha Lista</C.Button>
+                        </C.Buttons>
+                        <C.Genres>
+                            <strong>Gêneros: </strong>
+                            {genres}
+                        </C.Genres>
                     </C.MovieInfoArea>
                 </C.HorizontalFeatured>
             </C.VerticalFeatured>

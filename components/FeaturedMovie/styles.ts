@@ -54,3 +54,39 @@ export const Overview = styled.div`
     color: rgb(153, 153, 153);
     max-width: 40%;
 `;
+
+export const Buttons = styled.div`
+    margin-top: 15px;
+`;
+
+export const Button = styled.button`
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    opacity: 1;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+
+    &:first-child {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+    &:nth-child(2) {
+        background-color: rgb(51, 51, 51);
+        color: rgb(255, 255, 255);
+    }
+
+    &:hover {
+        opacity: 0.6;
+    }
+`;
+
+export const Genres = styled.div`
+    margin-top: 15px;
+    font-size: 18px;
+    color: rgb(153, 153, 153);
+`;

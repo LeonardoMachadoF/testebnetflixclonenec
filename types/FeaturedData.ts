@@ -3,7 +3,7 @@ export type FeaturedData = {
     genres: {
         id: number;
         name: string;
-    };
+    }[];
     id: number;
     number_of_seasons: number;
     overview: string;
