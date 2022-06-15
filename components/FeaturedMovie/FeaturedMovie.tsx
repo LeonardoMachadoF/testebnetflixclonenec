@@ -43,6 +43,7 @@ export const FeaturedMovie = ({ featuredData }: Props) => {
                         <C.Overview>{resume}</C.Overview>
                         <C.Buttons>
                             <a
+                                rel="noreferrer"
                                 target="_blank"
                                 href={`https://www.themoviedb.org/tv/${featuredData.id}`}
                             >
