@@ -7,19 +7,16 @@ type Props = {
 
 export const FeaturedMovie = ({ featuredData }: Props) => {
     const data = new Date(featuredData.first_air_date);
-
     let resume = "";
     if (featuredData.overview !== undefined) {
         resume = featuredData.overview.substring(0, 200) + "...";
     } else {
         resume = featuredData.overview;
     }
-
     let genres: string[] = [];
     for (let i in featuredData.genres) {
         genres.push(featuredData.genres[i].name);
     }
-
     return (
         <C.Container
             backgroundImage={`url(https://image.tmdb.org/t/p/original${featuredData.backdrop_path})`}

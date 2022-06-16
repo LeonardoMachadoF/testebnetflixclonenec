@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const MovieRowImages = styled.div<{ width: number }>`
+export const MovieRowImages = styled.div<{ width: number; marginLeft: number }>`
     display: flex;
     width: ${(props) => props.width * 150}px;
+    margin-left: ${(props) => props.marginLeft}px;
     flex-wrap: nowrap;
+    transition: all ease 0.8s;
 `;
 
 export const RowImage = styled.div`

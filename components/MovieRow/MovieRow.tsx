@@ -4,11 +4,12 @@ import { Results } from "../../types/Results";
 
 type Props = {
     item: Results[];
+    marginLeft: number;
 };
 
-export const MovieRow = ({ item }: Props) => {
+export const MovieRow = ({ item, marginLeft }: Props) => {
     return (
-        <C.MovieRowImages width={item.length}>
+        <C.MovieRowImages marginLeft={marginLeft} width={item.length}>
             {item.map(
                 (item, key) =>
                     item.poster_path !== null && (

@@ -7,6 +7,10 @@ export const Container = styled.div<{ backgroundImage: string }>`
     background-position: center;
     background-size: cover;
     justify-content: center;
+
+    @media (max-width: 768px) {
+        height: 70vh;
+    }
 `;
 
 export const VerticalFeatured = styled.div`
@@ -30,12 +34,22 @@ export const MovieInfoArea = styled.div`
     padding-left: 30px;
     padding-bottom: 150px;
     padding-top: 70px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 50px;
+        padding-right: 15px;
+    }
 `;
 
 export const Title = styled.div`
     font-size: 60px;
     font-weight: bold;
     color: #fff;
+
+    @media (max-width: 768px) {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
 `;
 
 export const Data = styled.div``;
@@ -43,7 +57,7 @@ export const Data = styled.div``;
 export const DataRow = styled.div<{ color?: string }>`
     display: inline-block;
     margin-right: 15px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: ${(props) => (props.color ? `${props.color}` : "#fff")};
 `;
@@ -53,6 +67,12 @@ export const Overview = styled.div`
     font-size: 20px;
     color: rgb(153, 153, 153);
     max-width: 40%;
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        font-size: 16px;
+        margin-top: 20px;
+    }
 `;
 
 export const Buttons = styled.div`
@@ -82,6 +102,12 @@ export const Button = styled.button`
 
     &:hover {
         opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 12px 20px;
+        margin-top: 20px;
     }
 `;
 
