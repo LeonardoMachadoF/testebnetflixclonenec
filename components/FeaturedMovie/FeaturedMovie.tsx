@@ -27,7 +27,7 @@ export const FeaturedMovie = ({ featuredData }: Props) => {
                         <C.Title>{featuredData.original_name}</C.Title>
                         <C.Data>
                             <C.DataRow color={"rgb(70, 211, 105)"}>
-                                {featuredData.vote_average}
+                                {featuredData.vote_average} Pontos
                             </C.DataRow>
                             <C.DataRow>{data.getFullYear()}</C.DataRow>
                             <C.DataRow>
