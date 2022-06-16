@@ -10,7 +10,6 @@ type Props = {
 
 export const MovieList = ({ item, title }: Props) => {
     const [marginLeft, setMarginLeft] = useState<number>(-430);
-    console.log(window.innerWidth, marginLeft);
 
     const handleLeftClick = () => {
         let x = marginLeft + Math.round(window.innerWidth / 2);
